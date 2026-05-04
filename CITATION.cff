@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "Three-Body Protocol: Coordinating AI-Collaborative Work Across Multiple Sessions"
+message: "If you use this work, please cite it as below."
+type: software
+authors:
+  - family-names: Bickel
+    given-names: Moran
+version: "1.3"
+date-released: "2026-05-04"
+url: "https://github.com/moranbickel/three-body-protocol"
+repository-code: "https://github.com/moranbickel/three-body-protocol"
+license:
+  - MIT
+  - CC-BY-4.0
+abstract: "Coordination protocol for AI-collaborative work — bridge artifacts that keep a thinking AI, an implementing AI, and a human aligned across sessions."
+keywords:
+  - ai-agents
+  - multi-agent
+  - claude-code
+  - ai-collaboration
+  - workflow-protocols
+  - prompt-engineering
