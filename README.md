@@ -4,7 +4,7 @@
 
 If you've ever spent twenty minutes re-briefing a fresh AI session on what was decided last week, or told a coding agent to do X and watched it do Y because it was missing context, this is the protocol. The pattern shows up across tool combinations — Claude + Claude Code, ChatGPT + Cursor, Copilot + any chat assistant — wherever a "thinking" AI and an "implementing" AI need to stay aligned through a human.
 
-I built it while developing [ORCA](#about-orca), a closed-source legal-AI drafting system for Israeli civil litigation workflows. It's now the second of six methodology pieces I'm publishing. The first is [Russian Judge](https://github.com/moranbickel/russian-judge).
+I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's now the second of six methodology pieces I'm publishing. The first is [Russian Judge](https://github.com/moranbickel/russian-judge).
 
 ---
 
@@ -187,7 +187,7 @@ This is the second of six methodology pieces from building [ORCA](#about-orca):
 
 ## About ORCA
 
-ORCA is a closed-source legal-AI drafting system I'm developing for Israeli civil litigation workflows. This repo publishes the coordination methodology, not ORCA's product internals — no source code, knowledge bases, prompts, customer data, or implementation roadmap. The methodology is open; ORCA is not.
+ORCA — Orchestrated Reasoning for Civil Action — is an AI legal reasoning system I'm building for Israeli civil litigation. The system is closed-source; the methodology that produced it is open. This repo publishes the coordination methodology, not ORCA's product internals — no source code, knowledge bases, prompts, customer data, or implementation roadmap.
 
 See my [GitHub profile](https://github.com/moranbickel) for the full body of work and how to follow ORCA's progress.
 
