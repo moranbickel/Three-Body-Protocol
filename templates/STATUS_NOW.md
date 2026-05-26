@@ -2,7 +2,7 @@
 
 A minimal STATUS_NOW for adoption today. The dedicated [`status-now-discipline`](https://github.com/moranbickel/status-now-discipline) repo (coming) goes deeper on the discipline.
 
-**Hard cap: 50 lines.** Including this comment block. The cap is the protocol.
+**Cap the length. 50 lines is my default** — and the skeleton below already uses ~30, so that leaves ~20 for live content. The *cap* is the protocol, not the specific number: tune it to your sections, but keep it small enough that the file forces archival. An uncapped status doc rots into a read-only graveyard — that's the failure the cap prevents.
 
 ---
 
@@ -57,4 +57,4 @@ Archive the oldest material. Two clean targets:
 - Decisions with rationale → `DECISIONS_LOG.md` (one entry per decision)
 - Notes that aren't decisions → `notes/<task>.md` or similar
 
-The cap is non-negotiable. A STATUS_NOW that grows past 50 lines stops being load-bearing.
+Having *a* cap is non-negotiable; the exact number is yours. A STATUS_NOW that's allowed to grow without one stops being load-bearing — nothing forces the archival that keeps it current.
