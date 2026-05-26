@@ -1,6 +1,6 @@
 # STATUS_NOW Template
 
-A minimal STATUS_NOW for adoption today. The dedicated [`status-now-discipline`](https://github.com/moranbickel/status-now-discipline) repo (coming) goes deeper on the discipline.
+A minimal STATUS_NOW for adoption today. A standalone deep-dive on the STATUS_NOW discipline may follow.
 
 **Cap the length. 50 lines is my default** — and the skeleton below already uses ~30, so that leaves ~20 for live content. The *cap* is the protocol, not the specific number: tune it to your sections, but keep it small enough that the file forces archival. An uncapped status doc rots into a read-only graveyard — that's the failure the cap prevents.
 
