@@ -62,7 +62,7 @@ Empirically: longer files become graveyards. People stop reading them, AI sessio
 
 ### Do I really need the "Forecloses" field in the decisions log?
 
-Yes. It's the field that prevents the most expensive failure mode: re-litigating closed decisions six months later because nobody captured what the decision ruled out. The first three months, this field feels artificial. After six months, it's the field you reach for first when reading old log entries.
+Yes. It's the field that prevents the most expensive failure mode: re-litigating closed decisions six months later because nobody captured what the decision ruled out. The first three months, this field feels artificial. After six months, it's the field you reach for first when reading old log entries. [`examples/forecloses-walkthrough.md`](../examples/forecloses-walkthrough.md) shows it on a high-stakes decision — and the re-litigation it prevents three months on.
 
 ---
 

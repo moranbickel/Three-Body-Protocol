@@ -76,6 +76,8 @@ The "why" is what makes it durable. A decisions log that records "we picked Post
 
 The "what was foreclosed" matters too. It's how you avoid re-running a closed argument. When a future session asks "have you considered Y?" the log says: yes, we considered Y, and here's why we didn't pick it.
 
+For a high-stakes case — a foreclosure carrying real consequence, and the future session it stops from quietly re-opening it — see [`examples/forecloses-walkthrough.md`](./examples/forecloses-walkthrough.md).
+
 ### Briefs
 
 When the strategic AI hands work to the implementing AI, it does so via a brief — a structured document, not a chat message. The brief contains: the task, the constraints (with sources), the inputs the implementing AI will consume, the outputs it will produce, and the success criteria.
