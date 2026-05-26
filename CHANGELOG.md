@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `examples/forecloses-walkthrough.md` — new high-stakes worked example for the `Forecloses` field (the protocol's most novel feature, previously undemonstrated): a consequential foreclosure, the re-litigation it prevents three months on across the session memory gap, and the explicit override path. Wired into README (DECISIONS_LOG section) and the faq. Closes systemic-review finding S-7.
+
 ## v1.3 — 2026-05-04
 
 Pre-publication placeholder substitution.
