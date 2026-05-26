@@ -4,7 +4,7 @@
 
 If you've ever spent twenty minutes re-briefing a fresh AI session on what was decided last week, or told a coding agent to do X and watched it do Y because it was missing context, this is the protocol. The pattern shows up across tool combinations — Claude + Claude Code, ChatGPT + Cursor, Copilot + any chat assistant — wherever a "thinking" AI and an "implementing" AI need to stay aligned through a human.
 
-I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's now the second of six methodology pieces I'm publishing. The first is [Russian Judge](https://github.com/moranbickel/russian-judge).
+I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's part of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/russian-judge).
 
 ---
 
@@ -66,7 +66,7 @@ The 50-line cap is the discipline. Without a cap, status documents become read-o
 
 Every fresh session opens with `view STATUS_NOW.md`. That's the boot ceremony. No exceptions. The session is now in sync, in seconds.
 
-(STATUS_NOW has its own dedicated repo as the sixth methodology piece. This one names it; the other goes deep.)
+(This piece names the STATUS_NOW discipline; a standalone deep-dive may follow.)
 
 ### DECISIONS_LOG
 
@@ -177,13 +177,14 @@ Christian Crumlish's ["Three-AI Orchestra"](https://medium.com/building-piper-mo
 
 ## Related
 
-This is the second of six methodology pieces from building [ORCA](#about-orca):
+This is one of a series of methodology pieces from building [ORCA](#about-orca):
 
 - **[Russian Judge](https://github.com/moranbickel/russian-judge)** — adversarial AI review with structured verdicts. Plugs into Three-Body as the cross-model audit layer.
+- **Three-Body Protocol** — *this repo.* Coordination across sessions in time.
 - **[Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence)** — coordination across sessions in parallel. The git-convergence layer that complements Three-Body's time-convergence layer.
-- **CSAE** — attestation chains for AI-generated commits. *(coming)*
-- **Engineering Rules** — rules-from-failures collection. *(coming)*
-- **STATUS_NOW Discipline** — the 50-line living handoff in depth. *(coming)*
+- **[CSAE](https://github.com/moranbickel/csae)** — attestation chains for AI-generated commits.
+
+More pieces as they're written.
 
 ## About ORCA
 
