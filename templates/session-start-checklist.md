@@ -9,8 +9,9 @@ The boot ceremony, as a checklist. Apply at the start of every session — strat
 ```
 1. view STATUS_NOW.md
 2. If STATUS_NOW.md is missing: HALT. Ask the human before proceeding.
-3. If STATUS_NOW.md is older than 1 week: WARN. Confirm the file is still
-   current before proceeding.
+3. If STATUS_NOW.md looks stale — work has moved since its last update
+   (new commits, merged branches, or several sessions since the timestamp):
+   WARN. Confirm it still reflects reality before proceeding.
 4. If a brief is being dispatched: view <brief path>.
 5. Confirm: current task, next step, active state (branches, locks).
 6. Begin substantive work.
@@ -34,7 +35,7 @@ The boot ceremony, as a checklist. Apply at the start of every session — strat
 
 **Halting on missing.** A session that proceeds without state is a session whose work product can't be trusted. Halting is cheap; recovery from drift is not.
 
-**Warning on stale.** STATUS_NOW that hasn't been updated in a week may not reflect reality. Better to confirm than to assume.
+**Warning on stale.** STATUS_NOW that predates real work — commits, merges, decisions made since its last update — may not reflect reality. Measure staleness in intervening *work*, not calendar days: a file untouched across two weeks of no work is fine; one untouched across a heavy afternoon may already be wrong. Better to confirm than to assume.
 
 **Brief read.** If a brief exists, the implementing actor's contract is the brief, not the chat message that pointed at it.
 
@@ -44,4 +45,4 @@ The boot ceremony, as a checklist. Apply at the start of every session — strat
 
 ## Pocket version
 
-> **Read STATUS_NOW. If it's missing or stale, stop. Then start.**
+> **Read STATUS_NOW. Missing → halt. Stale → confirm before you trust it. Then start.**

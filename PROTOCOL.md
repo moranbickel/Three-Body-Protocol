@@ -87,7 +87,7 @@ Every session — strategic or implementing — begins by reading STATUS_NOW. No
 
 For strategic sessions: the human pastes STATUS_NOW into the first message, or links to it, or instructs the session to fetch it. The session does not begin substantive work until it has parsed the file.
 
-For implementing sessions: the agent's first action is `view STATUS_NOW.md` (or the equivalent for the workspace's path). If the file is missing or stale, the session halts and asks before proceeding.
+For implementing sessions: the agent's first action is `view STATUS_NOW.md` (or the equivalent for the workspace's path). If the file is **missing**, the session halts and asks before proceeding. If it is present but **stale** — work has clearly moved since its last update — the session flags the staleness and confirms STATUS_NOW still reflects reality before relying on it. Missing is a hard halt; stale is a warn-and-confirm — the same split the session-start checklist makes.
 
 The boot ceremony is what converts re-briefing decay into bounded, deterministic session-start cost.
 

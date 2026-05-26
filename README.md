@@ -80,7 +80,7 @@ The "what was foreclosed" matters too. It's how you avoid re-running a closed ar
 
 When the strategic AI hands work to the implementing AI, it does so via a brief — a structured document, not a chat message. The brief contains: the task, the constraints (with sources), the inputs the implementing AI will consume, the outputs it will produce, and the success criteria.
 
-A brief is not a conversation. It's a contract. The implementing AI reads it, executes against it, and returns a result that maps back to the success criteria. Anything that wasn't in the brief is either an assumption (which the brief should make explicit) or out of scope (which the brief should also make explicit).
+A brief is not a conversation. It's a contract — but a contract the *operator* enforces at review, not one the implementing AI is mechanically held to. The AI can and will drift from the brief: infer something that wasn't there, skip a constraint, quietly expand scope. Nothing in the protocol stops that mid-flight. What makes the brief a contract is the loop around it: the result is checked against the success criteria, and a result that doesn't map back is a *detected deviation* — recovered by re-briefing (tighter scope, the missing constraint made explicit), not by accepting the drift. A brief with no review step is a suggestion; the review is what makes it a contract. Anything that wasn't in the brief is either an assumption (which the brief should make explicit) or out of scope (which the brief should also make explicit).
 
 This is the antidote to big-bang briefing. The brief format itself enforces the discipline of separating constraint from preference, inputs from outputs, scope from non-scope.
 
