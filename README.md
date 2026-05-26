@@ -4,7 +4,7 @@
 
 If you've ever spent twenty minutes re-briefing a fresh AI session on what was decided last week, or told a coding agent to do X and watched it do Y because it was missing context, this is the protocol. The pattern shows up across tool combinations — Claude + Claude Code, ChatGPT + Cursor, Copilot + any chat assistant — wherever a "thinking" AI and an "implementing" AI need to stay aligned through a human.
 
-I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's now the second of six methodology pieces I'm publishing. The first is [Russian Judge](https://github.com/moranbickel/russian-judge).
+I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's part of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/russian-judge).
 
 ---
 
@@ -66,7 +66,7 @@ The 50-line cap is the discipline. Without a cap, status documents become read-o
 
 Every fresh session opens with `view STATUS_NOW.md`. That's the boot ceremony. No exceptions. The session is now in sync, in seconds.
 
-(STATUS_NOW has its own dedicated repo as the sixth methodology piece. This one names it; the other goes deep.)
+(This piece names the STATUS_NOW discipline; a standalone deep-dive may follow.)
 
 ### DECISIONS_LOG
 
@@ -177,17 +177,18 @@ Christian Crumlish's ["Three-AI Orchestra"](https://medium.com/building-piper-mo
 
 ## Related
 
-This is the second of six methodology pieces from building [ORCA](#about-orca):
+This is one of a series of methodology pieces from building [ORCA](#about-orca):
 
 - **[Russian Judge](https://github.com/moranbickel/russian-judge)** — adversarial AI review with structured verdicts. Plugs into Three-Body as the cross-model audit layer.
+- **Three-Body Protocol** — *this repo.* Coordination across sessions in time.
 - **[Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence)** — coordination across sessions in parallel. The git-convergence layer that complements Three-Body's time-convergence layer.
-- **CSAE** — attestation chains for AI-generated commits. *(coming)*
-- **Engineering Rules** — rules-from-failures collection. *(coming)*
-- **STATUS_NOW Discipline** — the 50-line living handoff in depth. *(coming)*
+- **[CSAE](https://github.com/moranbickel/csae)** — attestation chains for AI-generated commits.
+
+More pieces as they're written.
 
 ## About ORCA
 
-ORCA — Orchestrated Reasoning for Civil Action — is an AI legal reasoning system I'm building for Israeli civil litigation. The system is closed-source; the methodology that produced it is open. This repo publishes the coordination methodology, not ORCA's product internals — no source code, knowledge bases, prompts, customer data, or implementation roadmap.
+ORCA — Orchestrated Reasoning for Civil Action — is an AI legal reasoning system I'm building for Israeli civil litigation. It's a decision system, not a document generator: it reasons about which causes of action hold, which elements the evidence supports, and what relief follows. A programmer builds a document generator; a litigator builds a decision system. The system is closed-source; the methodology that produced it is open. This repo publishes the coordination methodology, not ORCA's product internals — no source code, knowledge bases, prompts, customer data, or implementation roadmap.
 
 See my [GitHub profile](https://github.com/moranbickel) for the full body of work and how to follow ORCA's progress.
 
