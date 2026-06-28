@@ -14,14 +14,14 @@ The protocol identifies three actors in any AI-collaborative workflow that uses 
 
 **§1.1 The Strategic Actor.** An AI session used for thinking, planning, drafting, scoping, and decision support. Typically a chat-window LLM. Has memory of *its own session* and whatever artifacts it has been shown in that session. Has no memory of other sessions or of the workspace's persistent state unless that state is loaded into the session.
 
-**§1.2 The Implementing Actor.** An AI agent that performs work against the workspace — editing files, writing code, running commands, producing artifacts. Typically a terminal-based agent (Claude Code, Cursor's agent mode, etc.). Has memory of *its own session* and visibility into the workspace at run time. Has no memory of strategic-actor sessions.
+**§1.2 The Implementing Actor.** An AI agent that performs work against the workspace: editing files, writing code, running commands, producing artifacts. Typically a terminal-based agent (Claude Code, Cursor's agent mode, etc.). Has memory of *its own session* and visibility into the workspace at run time. Has no memory of strategic-actor sessions.
 
 **§1.3 The Human Operator.** The only actor with persistent memory across sessions and across actors. Decides scope, sequencing, and quality floor. Owns the bridge (per §3). Is the only point at which the three bodies share state.
 
 **§1.4 Memory boundaries.**
 The three bodies do not share working memory. Information that needs to flow between them must flow through artifacts the human controls (per §3).
 
-The protocol assumes session-level memory only. If the AI tools provide cross-session memory features, the protocol still applies — those features reduce the bridge's load but do not eliminate it.
+The protocol assumes session-level memory only. If the AI tools provide cross-session memory features, the protocol still applies. Those features reduce the bridge's load but do not eliminate it.
 
 ---
 
@@ -31,7 +31,7 @@ The protocol assumes session-level memory only. If the AI tools provide cross-se
 Coordination among the three bodies requires that decisions, state, and intent flow between actors. Because the actors do not share memory, information that is not durably written cannot reliably reach an actor that wasn't present when it was discussed.
 
 **§2.2 The human-memory failure.**
-The naive solution — "the human remembers and re-briefs as needed" — fails in practice. Human memory is fragile, biased toward recent events, and unreliable on rationale-and-foreclosure (the *why* behind decisions). Briefs reconstructed from memory drift from briefs written down at the moment of decision.
+The naive solution ("the human remembers and re-briefs as needed") fails in practice. Human memory is fragile, biased toward recent events, and unreliable on rationale-and-foreclosure (the *why* behind decisions). Briefs reconstructed from memory drift from briefs written down at the moment of decision.
 
 **§2.3 The cost of un-bridged work.**
 Without the bridge, three failure modes emerge: drift between strategic intent and implementation, decay across re-briefed sessions, and big-bang briefing that loses constraints in volume. (See README, "What goes wrong.")
@@ -51,7 +51,7 @@ A 50-line living document at a known path in the workspace. Required sections:
 - **Open backlogs** — items in flight or queued, with one-line each.
 - **Last run** — timestamp + outcome of the most recent meaningful execution.
 
-Hard cap: 50 lines. The cap is the discipline — without it, the file becomes a graveyard.
+Hard cap: 50 lines. The cap is the discipline. Without it, the file becomes a graveyard.
 
 When STATUS_NOW grows past 50 lines, the oldest material archives to DECISIONS_LOG (per §3.2) or to a per-task notes file. STATUS_NOW captures *now*; it does not accumulate history.
 
@@ -83,11 +83,11 @@ A brief is not a chat message. It is an artifact. Conversational handoffs betwee
 ## §4. Session Protocols
 
 **§4.1 Boot ceremony.**
-Every session — strategic or implementing — begins by reading STATUS_NOW. No exceptions.
+Every session, strategic or implementing, begins by reading STATUS_NOW. No exceptions.
 
 For strategic sessions: the human pastes STATUS_NOW into the first message, or links to it, or instructs the session to fetch it. The session does not begin substantive work until it has parsed the file.
 
-For implementing sessions: the agent's first action is `view STATUS_NOW.md` (or the equivalent for the workspace's path). If the file is **missing**, the session halts and asks before proceeding. If it is present but **stale** — work has clearly moved since its last update — the session flags the staleness and confirms STATUS_NOW still reflects reality before relying on it. Missing is a hard halt; stale is a warn-and-confirm — the same split the session-start checklist makes.
+For implementing sessions: the agent's first action is `view STATUS_NOW.md` (or the equivalent for the workspace's path). If the file is **missing**, the session halts and asks before proceeding. If it is present but **stale** (work has clearly moved since its last update), the session flags the staleness and confirms STATUS_NOW still reflects reality before relying on it. Missing is a hard halt; stale is a warn-and-confirm, the same split the session-start checklist makes.
 
 The boot ceremony is what converts re-briefing decay into bounded, deterministic session-start cost.
 
@@ -119,7 +119,7 @@ For high-stakes work, dispatch the implementing actor's output to a *second* AI 
 
 This is where [Russian Judge](https://github.com/moranbickel/russian-judge) plugs into the protocol. RJ's adversarial-review structure (verdict format, C/I/M taxonomy, pass floor) is designed to operate at this seam.
 
-"Different model" admits two interpretations: a different model from the same vendor (e.g., Opus reviewing Sonnet's output), or a different vendor entirely (e.g., GPT reviewing Claude's output). Both catch defects the producer missed. Cross-vendor review tends to catch a class of blind spots — framing assumptions, vendor-specific patterns, evaluation tropes — that same-vendor review can share with the producer. When the work is meta (about LLMs, AI methodology, or AI evaluation itself), the cross-vendor axis is worth the extra setup cost.
+"Different model" admits two interpretations: a different model from the same vendor (e.g., Opus reviewing Sonnet's output), or a different vendor entirely (e.g., GPT reviewing Claude's output). Both catch defects the producer missed. Cross-vendor review tends to catch a class of blind spots (framing assumptions, vendor-specific patterns, evaluation tropes) that same-vendor review can share with the producer. When the work is meta (about LLMs, AI methodology, or AI evaluation itself), the cross-vendor axis is worth the extra setup cost.
 
 The cross-model audit catches blind spots the producing model has on its own output. Single-model RJ catches some defects; cross-model RJ catches more. The cost is one additional dispatch; the benefit is empirically substantial on work that has been seen by the producer multiple times.
 
@@ -158,16 +158,16 @@ Briefs that omit constraints, success criteria, or out-of-scope sections "becaus
 The protocol assumes the bridge artifacts are trustworthy. If STATUS_NOW or DECISIONS_LOG drift from reality (because someone updated reality without updating the file), the protocol degrades silently. Operator discipline is what keeps the artifacts honest.
 
 **§7.2 Two-actor case.**
-The protocol scales down to two actors (one AI + the human) trivially — STATUS_NOW + DECISIONS_LOG carry the whole bridge, and brief dispatch becomes optional. The protocol scales up to four+ actors (multiple strategic AIs, multiple implementing AIs) by adding more brief routing, but the fundamentals don't change.
+The protocol scales down to two actors (one AI + the human) trivially. STATUS_NOW + DECISIONS_LOG carry the whole bridge, and brief dispatch becomes optional. The protocol scales up to four+ actors (multiple strategic AIs, multiple implementing AIs) by adding more brief routing, but the fundamentals don't change.
 
 **§7.3 Real-time coordination.**
-The protocol is asynchronous. It does not handle real-time coordination across parallel sessions running simultaneously — that needs additional locking or sequencing discipline that's out of scope here.
+The protocol is asynchronous. It does not handle real-time coordination across parallel sessions running simultaneously; that needs additional locking or sequencing discipline that's out of scope here.
 
 **§7.4 What the protocol doesn't fix.**
-Bad scope, weak models, unclear inputs, missing domain expertise — these are upstream of coordination. The bridge keeps the actors aligned; it does not improve what the actors produce.
+Bad scope, weak models, unclear inputs, missing domain expertise: these are upstream of coordination. The bridge keeps the actors aligned; it does not improve what the actors produce.
 
 **§7.5 Implementations vary.**
-The required artifacts in §3 are the load-bearing minimum, not the maximum. In production deployments, the bridge often acquires additional structure: STATUS_NOW may be implemented as session-block-with-rotation rather than a flat now-snapshot, with archival per session block rather than per line; DECISIONS_LOG may carry session-retrospective entries rather than rigid 3-field decisions, with decisions embedded in narrative; the bridge may have additional layers — project-level backlogs, decision indexes, retro corpora — that are read before STATUS_NOW at session boot. Both shapes are valid. The protocol's promise is that the bridge exists, is durable, and is read by every session — not that any specific file shape is the only legitimate one.
+The required artifacts in §3 are the load-bearing minimum, not the maximum. In production deployments, the bridge often acquires additional structure: STATUS_NOW may be implemented as session-block-with-rotation rather than a flat now-snapshot, with archival per session block rather than per line; DECISIONS_LOG may carry session-retrospective entries rather than rigid 3-field decisions, with decisions embedded in narrative; the bridge may have additional layers (project-level backlogs, decision indexes, retro corpora) that are read before STATUS_NOW at session boot. Both shapes are valid. The protocol's promise is that the bridge exists, is durable, and is read by every session, not that any specific file shape is the only legitimate one.
 
 ---
 

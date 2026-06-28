@@ -2,7 +2,7 @@
 
 The [decision-log template](../templates/decision-log-entry.md) shows the *shape* of a `Forecloses` field on a low-stakes decision (which GitHub handle to publish under). This example shows the field doing the work it was built for: carrying a high-consequence foreclosure across the memory gap between sessions, and stopping a well-meaning future session from re-opening a settled, dangerous question.
 
-Synthetic in its log text, but the underlying decision is a real one from building [ORCA](../README.md#about-orca). No product internals here — this is an architecture-level principle, the kind of thing the decisions log exists to hold.
+Synthetic in its log text, but the underlying decision is a real one from building [ORCA](../README.md#about-orca). No product internals here. This is an architecture-level principle, the kind of thing the decisions log exists to hold.
 
 ---
 
@@ -10,7 +10,7 @@ Synthetic in its log text, but the underlying decision is a real one from buildi
 
 Early in building a legal-AI system, one architectural choice has outsized stakes: **may the system write case-law citations into the court document it generates?**
 
-The pull toward "yes" is strong. A brief with supporting authorities reads as more persuasive; a reviewer who sees citations assumes rigor. But a language model that produces citations will, sometimes, produce citations that do not exist — and a fabricated or misapplied authority in a *filed* document is not a quality defect, it's a sanctionable event. In 2023, U.S. attorneys were sanctioned for filing a brief with case citations a chatbot had invented (*Mata v. Avianca*). That is the failure mode on the table.
+The pull toward "yes" is strong. A brief with supporting authorities reads as more persuasive; a reviewer who sees citations assumes rigor. But a language model that produces citations will, sometimes, produce citations that do not exist. A fabricated or misapplied authority in a *filed* document is not a quality defect, it's a sanctionable event. In 2023, U.S. attorneys were sanctioned for filing a brief with case citations a chatbot had invented (*Mata v. Avianca*). That is the failure mode on the table.
 
 So the decision is made, and it goes in the log.
 
@@ -48,13 +48,13 @@ A fresh strategic session opens. It has no memory of February. The operator is t
 
 > "The generated briefs would land harder with a few supporting citations. Can we have the model add the two or three strongest authorities to each argument?"
 
-This is exactly the **re-briefing decay** the protocol is built around. The session that made the February decision is gone; its reasoning lives only in the log. Without the `Forecloses` field, what happens next is predictable: the new session, reasoning from scratch, finds the persuasiveness argument compelling, and the team re-runs the entire February argument — except this time someone might land on "yes," and a sanctions-exposure path ships as a *feature*.
+This is exactly the **re-briefing decay** the protocol is built around. The session that made the February decision is gone; its reasoning lives only in the log. Without the `Forecloses` field, what happens next is predictable: the new session, reasoning from scratch, finds the persuasiveness argument compelling, and the team re-runs the entire February argument, except this time someone might land on "yes," and a sanctions-exposure path ships as a *feature*.
 
 With the field, the cost of detecting the closed decision is one grep:
 
 > Strategic AI, on boot, reads STATUS_NOW and greps DECISIONS_LOG for `citation`. It finds the 2026-02-10 entry and answers:
 >
-> "That's foreclosed, and the log says why: model-generated citations in court-facing text are a sanctionable-fabrication risk (*Mata v. Avianca* is cited as the precedent for the risk). The persuasiveness argument was already weighed and lost to the downside. If you want to revisit it, the protocol's move is an explicit override entry — and the override needs to carry the safeguard that would actually make inline citations safe, not just re-assert that they'd be nicer to have."
+> "That's foreclosed, and the log says why: model-generated citations in court-facing text are a sanctionable-fabrication risk (*Mata v. Avianca* is cited as the precedent for the risk). The persuasiveness argument was already weighed and lost to the downside. If you want to revisit it, the protocol's move is an explicit override entry, and the override needs to carry the safeguard that would actually make inline citations safe, not just re-assert that they'd be nicer to have."
 
 The decision space is *preserved*, not lost. The team doesn't re-argue from zero; it picks up exactly where February left off.
 
@@ -62,7 +62,7 @@ The decision space is *preserved*, not lost. The team doesn't re-argue from zero
 
 ## If you do want to revisit it — the override path
 
-Foreclosure is not a straitjacket. A foreclosure can be overridden — but the protocol forces the override to be explicit and to engage the original reason, rather than quietly drifting back to "yes." If, months later, the system gains a verified-citation registry (every citation must resolve against a database of real, current authorities before it can be emitted, or the build fails), the override entry might read:
+Foreclosure is not a straitjacket. A foreclosure can be overridden, but the protocol forces the override to be explicit and to engage the original reason, rather than quietly drifting back to "yes." If, months later, the system gains a verified-citation registry (every citation must resolve against a database of real, current authorities before it can be emitted, or the build fails), the override entry might read:
 
 ```markdown
 ## 2026-08-15 — OVERRIDE of 2026-02-10: inline citations permitted via verified registry
@@ -86,16 +86,16 @@ can now be taken safely.
 **Related:** Overrides 2026-02-10 — Authorities are QA-only.
 ```
 
-Notice what the override is forced to do: it names the *exact reason* the original decision gave, and it ships only because it closes that reason at the mechanism level. An override that just said "citations are fine now, they make briefs better" would be re-litigation wearing a timestamp — the original entry already weighed and rejected that argument. The foreclosure makes the bar for reversal honest.
+Notice what the override is forced to do: it names the *exact reason* the original decision gave, and it ships only because it closes that reason at the mechanism level. An override that just said "citations are fine now, they make briefs better" would be re-litigation wearing a timestamp. The original entry already weighed and rejected that argument. The foreclosure makes the bar for reversal honest.
 
 ---
 
 ## What to notice
 
 - **The `Forecloses` field is what converts "we decided this once" into "future sessions can't silently undo it."** Without it, the February reasoning evaporates with the session that held it, and a high-stakes question reverts to open.
-- **High-stakes decisions are exactly where re-litigation is most dangerous** — and exactly where session memory is least reliable, because the consequential decisions are often the *early* ones, furthest from any current session's context.
+- **High-stakes decisions are exactly where re-litigation is most dangerous**, and exactly where session memory is least reliable, because the consequential decisions are often the *early* ones, furthest from any current session's context.
 - **The foreclosure is cheap to detect (one grep) and the reason travels with it.** A bare "no, we decided against that" would invite "but why?" and re-open the argument anyway. The `Rationale` + `Forecloses` pair answers the why before it's asked.
-- **The override path keeps foreclosure from becoming dogma.** A decision can always be reversed — but the protocol forces the reversal to engage the original reason, not bypass it. That's the difference between a *decision* and a *taboo*.
+- **The override path keeps foreclosure from becoming dogma.** A decision can always be reversed, but the protocol forces the reversal to engage the original reason, not bypass it. That keeps a foreclosure revisitable rather than absolute.
 
 ---
 
