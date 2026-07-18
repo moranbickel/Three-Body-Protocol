@@ -13,7 +13,7 @@ repository-code: "https://github.com/moranbickel/three-body-protocol"
 license:
   - MIT
   - CC-BY-4.0
-abstract: "Coordination protocol for AI-collaborative work — bridge artifacts that keep a thinking AI, an implementing AI, and a human aligned across sessions."
+abstract: "Coordination protocol for AI-collaborative work - bridge artifacts that keep a thinking AI, an implementing AI, and a human aligned across sessions."
 keywords:
   - ai-agents
   - multi-agent

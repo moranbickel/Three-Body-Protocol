@@ -12,7 +12,7 @@ By week three, I was making the same drift mistake every other day. The strategi
 
 By week six, I was opening fresh Claude sessions and re-briefing them from memory. The re-briefs were drifting. Decisions I'd made in week two were getting inverted in week six because I misremembered which way they went. Sessions felt productive. The work was getting worse.
 
-The protocol came from naming the architecture: three actors, two of them AIs, none with shared memory, and me as the fragile bridge. Once the architecture had a name, the fix was obvious — write the bridge down. Stop relying on my memory.
+The protocol came from naming the architecture: three actors, two of them AIs, none with shared memory, and me as the fragile bridge. Once the architecture had a name, the fix was obvious - write the bridge down. Stop relying on my memory.
 
 ---
 
@@ -26,7 +26,7 @@ The protocol came from naming the architecture: three actors, two of them AIs, n
 
 **Re-litigation of closed decisions.** Without a "Forecloses" field in the decisions log, every fresh session asks "have we considered Y?" and re-runs an argument that was settled three months ago. The Forecloses field makes re-litigation cheap to detect.
 
-**Session-end neglect.** Sessions that end without updating STATUS_NOW corrupt the next session's boot. I lost real time to this — opening a session, finding STATUS_NOW out of date, spending fifteen minutes re-deriving where things stood. The session-end protocol is the discipline that closes this gap.
+**Session-end neglect.** Sessions that end without updating STATUS_NOW corrupt the next session's boot. I lost real time to this - opening a session, finding STATUS_NOW out of date, spending fifteen minutes re-deriving where things stood. The session-end protocol is the discipline that closes this gap.
 
 ---
 
@@ -48,23 +48,23 @@ The protocol came from naming the architecture: three actors, two of them AIs, n
 
 **STATUS_NOW from day one.** I introduced it in week six. The first five weeks of drift would have been cheaper to prevent than to recover from.
 
-**Decisions log earlier.** I started one in week eight. The decisions from weeks 1–7 had to be reconstructed from chat history, and several were lost. Don't repeat that. If you start a project today, start the log today.
+**Decisions log earlier.** I started one in week eight. The decisions from weeks 1-7 had to be reconstructed from chat history, and several were lost. Don't repeat that. If you start a project today, start the log today.
 
 **Brief format earlier.** I was doing chat-handoff for months before I formalized the brief. Every brief I've sent since the format stabilized has been more reliable than any chat-handoff before it.
 
 **Boot ceremony as a hook.** I enforced it by convention for a long time. Eventually wiring it as a session-init hook removed the failure mode where I'd "just dive in" on a session and skip the boot. Mechanizing the boot ceremony is the highest-ROI 30-minute investment in the whole protocol.
 
-**Cross-model RJ from earlier.** The cross-model audit pattern — using a different model to review the implementing actor's output — caught defects that single-model review missed three rounds in a row. I underused this pattern for a long time. It's the cheapest insurance the protocol has.
+**Cross-model RJ from earlier.** The cross-model audit pattern - using a different model to review the implementing actor's output - caught defects that single-model review missed three rounds in a row. I underused this pattern for a long time. It's the cheapest insurance the protocol has.
 
 ---
 
 ## The naming choice
 
-"Three-body problem" is borrowed from physics. The metaphor is dramatic on purpose. In physics, three gravitational bodies have no closed-form solution. In AI workflows, the architectural shape is the same — three actors, mutual influence, no shared state — but the math is much easier. Once you have the bridge, the system is tractable.
+"Three-body problem" is borrowed from physics. The metaphor is dramatic on purpose. In physics, three gravitational bodies have no closed-form solution. In AI workflows, the architectural shape is the same - three actors, mutual influence, no shared state - but the math is much easier. Once you have the bridge, the system is tractable.
 
 The drama is doing real work, though. Most "how I use Claude" content treats coordination friction as something to put up with. Naming it as the three-body problem reframes coordination as the *actual* structural issue. That reframe is what makes the rest of the protocol read as architectural rather than tactical.
 
-I was tempted to give it a less dramatic name — "session coordination protocol" or similar. Decided against. Drama in technical naming is fine when the drama is doing pedagogical work, and here it is.
+I was tempted to give it a less dramatic name - "session coordination protocol" or similar. Decided against. Drama in technical naming is fine when the drama is doing pedagogical work, and here it is.
 
 ---
 
