@@ -4,7 +4,7 @@
 
 If you've ever spent twenty minutes re-briefing a fresh AI session on what was decided last week, or told a coding agent to do X and watched it do Y because it was missing context, this is for you. The pattern shows up across tools (Claude plus Claude Code, ChatGPT plus Cursor, Copilot plus any chat assistant), wherever a "thinking" AI and an "implementing" AI have to stay aligned through a human.
 
-I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's one of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/russian-judge).
+I built it while developing [ORCA](#about-orca), an AI legal reasoning system for Israeli civil litigation. It's one of a series of methodology pieces I'm publishing from that work, alongside [Russian Judge](https://github.com/moranbickel/Russian-Judge).
 
 ---
 
@@ -66,8 +66,6 @@ The 50-line cap is the discipline. Without a cap, status documents become read-o
 
 Every fresh session opens with `view STATUS_NOW.md`. That's the boot step, no exceptions. The session is in sync in seconds.
 
-(This piece names the STATUS_NOW discipline; a standalone deep-dive may follow.)
-
 ### DECISIONS_LOG
 
 An append-only file that captures decisions and their reasons. Not a changelog, a *decisions* log. Each entry has three fields: what was decided, why, and what the decision ruled out.
@@ -77,6 +75,16 @@ The "why" is what makes it durable. A decisions log that records "we picked Post
 The "what it ruled out" matters too. It's how you avoid re-running a closed argument. When a future session asks "have you considered Y?", the log answers: yes, we considered Y, and here's why we didn't pick it.
 
 For a high-stakes case, a foreclosure that carries real consequence and the future session it stops from quietly re-opening it, see [`examples/forecloses-walkthrough.md`](./examples/forecloses-walkthrough.md).
+
+### The backlog
+
+STATUS_NOW holds the present; the backlog holds everything parked for later. It is
+the same discipline applied to future work: each item is a durable, numbered entry
+with a status, so the work survives the loss of any one session's memory. The
+ledger is the source of truth, not anyone's recollection - an item stays open until
+the ledger says otherwise. Like STATUS_NOW, it earns its keep only if it is read at
+the start of work and updated at the end; an unmaintained backlog is a graveyard,
+not a bridge.
 
 ### Briefs
 
@@ -88,7 +96,7 @@ This is the antidote to big-bang briefing. The brief format forces you to separa
 
 ### Cross-model audit (optional but recommended)
 
-For high-stakes work, send the same artifact to a second AI for adversarial review, usually a different model from the one that produced it. This is where [Russian Judge](https://github.com/moranbickel/russian-judge) plugs into the three-body protocol.
+For high-stakes work, send the same artifact to a second AI for adversarial review, usually a different model from the one that produced it. This is where [Russian Judge](https://github.com/moranbickel/Russian-Judge) plugs into the three-body protocol.
 
 The point isn't redundancy. It's that different models have different blind spots, so a second reviewer with a different baseline catches what the first one missed. In my own work, cross-model review has repeatedly caught defects that same-model review missed, especially after the producing model had already seen the artifact several times. The trade is lopsided: one extra dispatch against a defect that would otherwise have shipped.
 
@@ -118,12 +126,12 @@ Coordinating three actors means deciding, before the work starts, who decides wh
 
 | Decision | Owner |
 |---|---|
-| Scope — what's in, what's out | Human |
-| Strategy — how the work is shaped | Strategic AI (with human confirmation) |
-| Implementation — how the work is built | Implementing AI |
-| Quality floor — when the work ships | Human (with reviewer-AI input via RJ) |
-| Sequencing — what gets done in what order | Human |
-| Memory — what gets written down, where | Human (this is the bridge) |
+| Scope - what's in, what's out | Human |
+| Strategy - how the work is shaped | Strategic AI (with human confirmation) |
+| Implementation - how the work is built | Implementing AI |
+| Quality floor - when the work ships | Human (with reviewer-AI input via RJ) |
+| Sequencing - what gets done in what order | Human |
+| Memory - what gets written down, where | Human (this is the bridge) |
 
 These are defaults, not laws. Move things around as you like. But decide once, write it down, and refer back to it. The most expensive failures in three-body work are the ones where two actors think they own the same decision, or where none of them does.
 
@@ -163,9 +171,9 @@ The drama in the name is doing a job, though. It signals that this is an archite
 
 ## Related work
 
-I went looking for adjacent pieces after drafting this. I'm naming each one so you can place Three-Body in the existing landscape. The differentiation is clean and doesn't need defending, but any methodology piece is only as credible as the author's having actually surveyed the field.
+I went looking for adjacent pieces after drafting this. I'm naming each one so you can place Three-Body in the existing landscape.
 
-The closest in spirit is Timothy Rainwater's [multi-agent-coordination-framework](https://github.com/timothyjrainwater-lab/multi-agent-coordination-framework), a fellow non-technical operator's catalog of patterns from coordinating Claude and GPT on a large test codebase over four months. Rainwater names "Artifact Primacy" ("if it's not in a file, it doesn't exist") and "Protocol Over Memory," and the overlap with the bridge artifacts here is real. Three-Body differs in its tighter five-piece scope, the 50-line cap as a structural rule, the "what it ruled out" field in the decisions log, and the explicit coupling to [Russian Judge](https://github.com/moranbickel/russian-judge) as the cross-model audit layer.
+The closest in spirit is Timothy Rainwater's [multi-agent-coordination-framework](https://github.com/timothyjrainwater-lab/multi-agent-coordination-framework), a fellow non-technical operator's catalog of patterns from coordinating Claude and GPT on a large test codebase over four months. Rainwater names "Artifact Primacy" ("if it's not in a file, it doesn't exist") and "Protocol Over Memory," and the overlap with the bridge artifacts here is real. Three-Body differs in its tighter five-piece scope, the 50-line cap as a structural rule, the "what it ruled out" field in the decisions log, and the explicit coupling to [Russian Judge](https://github.com/moranbickel/Russian-Judge) as the cross-model audit layer.
 
 Addy Osmani's [Automated Decision Logs in AI-Assisted Coding](https://addyosmani.com/blog/automated-decision-logs/) is the closest decision-log lineage. His piece is conceptual ("teams should capture reasoning"); this protocol gives it a specific shape: three required fields, a ruled-out field to prevent re-litigation, and integration with STATUS_NOW.
 
@@ -181,11 +189,11 @@ Christian Crumlish's ["Three-AI Orchestra"](https://medium.com/building-piper-mo
 
 This is one of a series of methodology pieces from building [ORCA](#about-orca):
 
-- **[Russian Judge](https://github.com/moranbickel/russian-judge)** — adversarial AI review with structured verdicts. Plugs into Three-Body as the cross-model audit layer.
-- **Three-Body Protocol** — *this repo.* Coordination across sessions in time.
-- **[Peer-Worker Convergence](https://github.com/moranbickel/peer-worker-convergence)** — coordination across sessions in parallel. The git-convergence layer that complements Three-Body's time layer.
-- **[CSAE](https://github.com/moranbickel/csae)** — attestation chains for AI-generated commits.
-- **[Pre-IMPL Forensic Discipline](https://github.com/moranbickel/Pre-IMPL-Forensic-Discipline)** — catching wrong premises before they become wrong commits (v0.1 draft).
+- **[Russian Judge](https://github.com/moranbickel/Russian-Judge)** - adversarial AI review with structured verdicts. Plugs into Three-Body as the cross-model audit layer.
+- **Three-Body Protocol** - *this repo.* Coordination across sessions in time.
+- **[Peer-Worker Convergence](https://github.com/moranbickel/Peer-Worker-Convergence)** - coordination across sessions in parallel. The git-convergence layer that complements Three-Body's time layer.
+- **[CSAE](https://github.com/moranbickel/CSAE)** - attestation chains for AI-generated commits.
+- **[Pre-IMPL Forensic Discipline](https://github.com/moranbickel/Pre-IMPL-Forensic-Discipline)** - catching wrong premises before they become wrong commits (v0.1 draft).
 
 More pieces as they're written.
 
@@ -202,4 +210,4 @@ See my [GitHub profile](https://github.com/moranbickel) for the full body of wor
 - Prose: [CC BY 4.0](./LICENSE-CC-BY-4.0)
 - Templates and code: [MIT](./LICENSE-MIT)
 
-— Moran Bickel
+- Moran Bickel
