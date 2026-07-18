@@ -7,7 +7,7 @@ The DECISIONS_LOG is append-only. Every decision with lasting consequence gets a
 ## Entry shape
 
 ```markdown
-## YYYY-MM-DD — <short decision name>
+## YYYY-MM-DD - <short decision name>
 
 **Decision:** <what was decided, in one sentence>
 
@@ -23,7 +23,7 @@ The DECISIONS_LOG is append-only. Every decision with lasting consequence gets a
 ## Worked example
 
 ```markdown
-## 2026-05-04 — Methodology repos under personal handle, not org
+## 2026-05-04 - Methodology repos under personal handle, not org
 
 **Decision:** All five methodology repos publish under `github.com/moranbickel/<repo>`,
 not under a separate `methodology-public` org.
@@ -39,7 +39,7 @@ substantially less infrastructure.
 - Future repos in the same body of work moving under an org without breaking
   inbound links.
 
-**Related:** 2026-05-03 — Five methodology pieces sequenced, RJ first.
+**Related:** 2026-05-03 - Five methodology pieces sequenced, RJ first.
 ```
 
 ---

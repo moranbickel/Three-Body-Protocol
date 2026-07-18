@@ -1,4 +1,4 @@
-# Three-Body Protocol — Specification
+# Three-Body Protocol - Specification
 
 **Version:** 1.0
 **Status:** Stable
@@ -45,11 +45,11 @@ The bridge is composed of three artifacts. All three are mandatory under this pr
 **§3.1 STATUS_NOW.**
 A 50-line living document at a known path in the workspace. Required sections:
 
-- **Current task** — what the human is working on right now, in one or two sentences.
-- **Next step** — the immediate next action, concrete enough to execute against.
-- **Active state** — branches, locks, in-flight work, environments, anything an actor needs to know to avoid stepping on something.
-- **Open backlogs** — items in flight or queued, with one-line each.
-- **Last run** — timestamp + outcome of the most recent meaningful execution.
+- **Current task** - what the human is working on right now, in one or two sentences.
+- **Next step** - the immediate next action, concrete enough to execute against.
+- **Active state** - branches, locks, in-flight work, environments, anything an actor needs to know to avoid stepping on something.
+- **Open backlogs** - items in flight or queued, with one-line each.
+- **Last run** - timestamp + outcome of the most recent meaningful execution.
 
 Hard cap: 50 lines. The cap is the discipline. Without it, the file becomes a graveyard.
 
@@ -58,9 +58,9 @@ When STATUS_NOW grows past 50 lines, the oldest material archives to DECISIONS_L
 **§3.2 DECISIONS_LOG.**
 An append-only file capturing decisions and their rationales. Each entry has three required fields:
 
-- **Decision** — what was decided, in one sentence.
-- **Rationale** — why this and not the alternatives. Brief; one paragraph maximum.
-- **Forecloses** — what this decision now rules out, so future sessions don't re-litigate it.
+- **Decision** - what was decided, in one sentence.
+- **Rationale** - why this and not the alternatives. Brief; one paragraph maximum.
+- **Forecloses** - what this decision now rules out, so future sessions don't re-litigate it.
 
 Optional fields: date, related decisions (cross-references), owner.
 
@@ -69,12 +69,12 @@ The entry shape is rigid because the rigidity is what makes the log readable in 
 **§3.3 Briefs.**
 A brief is a structured document that the strategic actor produces and the implementing actor consumes. Required sections:
 
-- **Task** — what is to be done.
-- **Inputs** — what the implementing actor will read, with paths or pointers.
-- **Outputs** — what the implementing actor will produce, with paths and acceptance shape.
-- **Constraints** — explicit rules the implementing actor must honor; sources cited where the constraint comes from a spec or decision.
-- **Out of scope** — what is explicitly *not* part of this brief.
-- **Success criteria** — how the human will know the brief was executed correctly.
+- **Task** - what is to be done.
+- **Inputs** - what the implementing actor will read, with paths or pointers.
+- **Outputs** - what the implementing actor will produce, with paths and acceptance shape.
+- **Constraints** - explicit rules the implementing actor must honor; sources cited where the constraint comes from a spec or decision.
+- **Out of scope** - what is explicitly *not* part of this brief.
+- **Success criteria** - how the human will know the brief was executed correctly.
 
 A brief is not a chat message. It is an artifact. Conversational handoffs between strategic and implementing actors are anti-pattern (per §6.4).
 
@@ -130,7 +130,7 @@ The audit is not mandatory under this protocol. It is *recommended* for any work
 ## §6. Anti-Patterns
 
 **§6.1 The "I'll remember" anti-pattern.**
-Treating human memory as an adequate bridge. Always fails on a 1–4 week horizon.
+Treating human memory as an adequate bridge. Always fails on a 1-4 week horizon.
 
 **§6.2 The empty-STATUS_NOW anti-pattern.**
 Maintaining a STATUS_NOW that has been "kept short" by leaving it empty or near-empty. The cap forces archival, not minimalism. An empty STATUS_NOW is a failure of the protocol, not a success.

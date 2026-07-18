@@ -19,19 +19,19 @@ A brief is the structured handoff from the strategic actor (chat-window AI + hum
 
 ## Inputs
 
-- <file or pointer> — <one-line description>
-- <file or pointer> — <one-line description>
-- <upstream decision or spec> — <one-line description with link>
+- <file or pointer> - <one-line description>
+- <file or pointer> - <one-line description>
+- <upstream decision or spec> - <one-line description with link>
 
 ## Outputs
 
-- <file path> — <expected shape>
-- <file path> — <expected shape>
-- <commit / PR / verdict> — <expected shape>
+- <file path> - <expected shape>
+- <file path> - <expected shape>
+- <commit / PR / verdict> - <expected shape>
 
 ## Constraints
 
-- <constraint, with source> — e.g., "Must preserve interface X (see docs/spec.md §4)"
+- <constraint, with source> - e.g., "Must preserve interface X (see docs/spec.md §4)"
 - <constraint, with source>
 - <constraint, with source>
 
@@ -50,17 +50,17 @@ A brief is the structured handoff from the strategic actor (chat-window AI + hum
 
 ## Why each section is mandatory
 
-**Task** — without it, the implementing actor optimizes against the wrong goal. "Implement X" without intent ("so that Y" or "to fix Z") produces work that ticks the box but misses the point.
+**Task** - without it, the implementing actor optimizes against the wrong goal. "Implement X" without intent ("so that Y" or "to fix Z") produces work that ticks the box but misses the point.
 
-**Inputs** — without it, the implementing actor either reads everything (slow, noisy) or guesses what to read (drift). Explicit input lists scope the actor's read-set.
+**Inputs** - without it, the implementing actor either reads everything (slow, noisy) or guesses what to read (drift). Explicit input lists scope the actor's read-set.
 
-**Outputs** — without it, the implementing actor's verdict on "done" is unverifiable. Explicit output paths and shapes turn "done" into a binary, mechanical check.
+**Outputs** - without it, the implementing actor's verdict on "done" is unverifiable. Explicit output paths and shapes turn "done" into a binary, mechanical check.
 
-**Constraints with sources** — without sources, the implementing actor treats constraints as preferences and overrides them under load. Sources make constraints traceable to the spec or decision they came from, which is what makes them durable across rounds.
+**Constraints with sources** - without sources, the implementing actor treats constraints as preferences and overrides them under load. Sources make constraints traceable to the spec or decision they came from, which is what makes them durable across rounds.
 
-**Out of scope** — without it, the implementing actor scope-creeps. Either it does too much (and breaks adjacent things) or it does adjacent things "while it's there." Explicit out-of-scope sections close the gap.
+**Out of scope** - without it, the implementing actor scope-creeps. Either it does too much (and breaks adjacent things) or it does adjacent things "while it's there." Explicit out-of-scope sections close the gap.
 
-**Success criteria** — without it, the implementing actor self-asserts done-ness. Explicit success criteria let the human (and any reviewer AI like Russian Judge) verify the work product against an external standard.
+**Success criteria** - without it, the implementing actor self-asserts done-ness. Explicit success criteria let the human (and any reviewer AI like Russian Judge) verify the work product against an external standard.
 
 ---
 
@@ -82,19 +82,19 @@ mechanical.
 
 ## Inputs
 
-- `.claude/hooks/session-start.sh` — existing hook file, currently empty
-- `STATUS_NOW.md` — the file to be read at session start
+- `.claude/hooks/session-start.sh` - existing hook file, currently empty
+- `STATUS_NOW.md` - the file to be read at session start
 - Existing convention documented in `docs/methodology/three-body-protocol.md`
 
 ## Outputs
 
-- `.claude/hooks/session-start.sh` — populated with the boot logic
-- `tests/test_session_start_hook.sh` — smoke test that the hook runs and exits 0
+- `.claude/hooks/session-start.sh` - populated with the boot logic
+- `tests/test_session_start_hook.sh` - smoke test that the hook runs and exits 0
 - A test run showing the hook fires on a new session
 
 ## Constraints
 
-- Hook must exit 0 even if STATUS_NOW.md is missing (with a warning to stderr) —
+- Hook must exit 0 even if STATUS_NOW.md is missing (with a warning to stderr) -
   per Three-Body Protocol §4.1, missing STATUS_NOW halts the *substantive* work,
   not the hook itself.
 - Hook must respect `LC_ALL=C.UTF-8` and `command -v` guards (see hook-hygiene
@@ -104,7 +104,7 @@ mechanical.
 ## Out of scope
 
 - Auto-updating STATUS_NOW (separate brief).
-- Hooking strategic-actor sessions (chat-window) — those use a manual paste pattern.
+- Hooking strategic-actor sessions (chat-window) - those use a manual paste pattern.
 - Cross-session locking.
 
 ## Success criteria
