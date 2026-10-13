@@ -62,7 +62,7 @@ Empirically: longer files become graveyards. People stop reading them, AI sessio
 
 ### Do I really need the "Forecloses" field in the decisions log?
 
-Yes. It's the field that prevents the most expensive failure mode: re-litigating closed decisions six months later because nobody captured what the decision ruled out. The first three months, this field feels artificial. After six months, it's the field you reach for first when reading old log entries. [`examples/forecloses-walkthrough.md`](../examples/forecloses-walkthrough.md) shows it on a high-stakes decision - and the re-litigation it prevents three months on.
+Yes. It's the field that prevents the most expensive failure mode: re-litigating closed decisions six months later because nobody captured what the decision ruled out. The first three months, this field feels artificial. After six months, it's the field you reach for first when reading old log entries. [`examples/idempotent-refunds-walkthrough.md`](../examples/forecloses-walkthrough.md) shows it on a high-stakes decision - and the re-litigation it prevents three months on.
 
 ---
 
@@ -112,9 +112,9 @@ Anything that respects the artifacts. Git is the obvious example - versioning ST
 
 ---
 
-### Did you really build this for legal-AI work?
+### Where did this come from?
 
-Yes. ORCA's pipeline involves multiple Claude sessions coordinating across spec authoring, code implementation, legal-content drafting, and adversarial review. The three-body problem was acute there because the cost of drift was high - a missed constraint in legal content can mean malpractice exposure. The protocol generalized cleanly to non-legal work, which is why this repo exists.
+From one author's experience coordinating several AI sessions on a long-running software project, where drift between sessions was costly. It has not been tested systematically, and the repo makes no measured claims about its effect. Treat it as a set of working conventions to try, not as validated practice.
 
 ---
 

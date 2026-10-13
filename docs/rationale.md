@@ -6,7 +6,7 @@ Why the Three-Body Protocol exists, and the failure modes that produced it.
 
 ## How I got here
 
-I started ORCA the way most people start an AI-collaborative project: a Claude chat for thinking, and Claude Code for implementation. For the first week, I held the architecture in my head. Felt fine.
+I started my project the way most people start an AI-collaborative project: a Claude chat for thinking, and Claude Code for implementation. For the first week, I held the architecture in my head. Felt fine.
 
 By week three, I was making the same drift mistake every other day. The strategic Claude would tell me to do X, with a constraint that we'd discussed in chat. I'd brief Claude Code on X, leave out the constraint because it felt obvious, and Claude Code would ship X-without-the-constraint. Strategic Claude would assess the result, miss that the constraint had been dropped, and recommend a next step that assumed the constraint was honored. By the time I caught it, I'd be three deltas downstream of the divergence point.
 
