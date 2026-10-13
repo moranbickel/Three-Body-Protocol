@@ -28,7 +28,7 @@ Acceptance: Send the same request twice; only one refund is recorded.
 
 The receiving session can verify a specific constraint instead of reconstructing
 it from a chat summary. For a fuller example, see the
-[decision walkthrough](examples/forecloses-walkthrough.md).
+[decision walkthrough](examples/idempotent-refunds-walkthrough.md).
 
 A written handoff can still be stale. Try the
 [already-fixed crash test](https://github.com/moranbickel/agent-crash-tests/tree/main/cases/already-fixed)
@@ -49,4 +49,10 @@ and [session handoffs](https://github.com/softaworks/agent-toolkit/tree/main/ski
 For branch synchronization, see [Peer-Worker-Convergence](https://github.com/moranbickel/Peer-Worker-Convergence).
 
 Maintained by [Moran Bickel](https://github.com/moranbickel).
-Prose: [CC BY 4.0](LICENSE-CC-BY-4.0). Templates and code: [MIT](LICENSE-MIT).
+## License
+
+- Prose under [CC BY 4.0](LICENSE-CC-BY-4.0) (https://creativecommons.org/licenses/by/4.0/):
+  `README.md`, `PROTOCOL.md`, `CHANGELOG.md`, `diagram.svg`, `docs/`, `examples/`.
+- Templates and code under [MIT](LICENSE-MIT): `templates/` and any scripts.
+  The top-level [LICENSE](LICENSE) carries the same MIT terms plus a scope header.
+- `CITATION.cff` and `CITATION.md` are citation metadata; reuse them as needed to cite this work.

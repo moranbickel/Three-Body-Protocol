@@ -1,6 +1,6 @@
 # How to Adopt the Three-Body Protocol
 
-Concrete steps to start using the protocol today. Estimated time to functional adoption: **30 minutes**. Estimated time to fluent use: **two weeks of real work**.
+Concrete steps to start using the protocol today. Rough guesses, not measurements: functional adoption in about 30 minutes, fluent use after a couple of weeks of real work.
 
 ---
 
@@ -40,7 +40,7 @@ That's the loop.
 
 ### Day 1-3: Boot ceremony every time.
 
-You'll forget. That's normal. Notice when you forgot, do the boot ceremony retroactively (paste STATUS_NOW into the chat), and move on. The discipline takes about a week to internalize.
+You'll forget. That's normal. Notice when you forgot, do the boot ceremony retroactively (paste STATUS_NOW into the chat), and move on. In my experience it takes about a week to internalize (a guess, not a measurement).
 
 ### Day 4-5: Start writing decisions to the log in the moment.
 
@@ -56,7 +56,7 @@ End of week one: read your STATUS_NOW history (if you've been keeping snapshots)
 
 ### Mechanize the boot ceremony.
 
-If you haven't already, wire STATUS_NOW reading as a session-init hook for your implementing actor. The cost is 15 minutes; the benefit is removing the "I'll just dive in" failure mode permanently.
+If you haven't already, wire STATUS_NOW reading as a session-init hook for your implementing actor. The cost is perhaps 15 minutes (a guess); in my experience it removes the "I'll just dive in" failure mode.
 
 ### Add the cross-model audit.
 
@@ -80,10 +80,10 @@ You'll know you've adopted the protocol when:
 - You write decisions to DECISIONS_LOG in the moment, not later.
 - You dispatch briefs as files, not as chat messages.
 - A fresh session next month can pick up where today's session ended, without you re-briefing from memory.
-- You catch drift earlier - usually within one round, not three.
-- You stop opening sessions with twenty minutes of "let me re-explain the project."
+- You catch drift earlier - in my experience, often within one round rather than several (an impression, not a measurement).
+- In my experience, you stop opening sessions with twenty minutes of "let me re-explain the project."
 
-This typically takes 2-4 weeks of consistent use.
+Expect this to take a few weeks of consistent use (a guess, not a measurement).
 
 ---
 

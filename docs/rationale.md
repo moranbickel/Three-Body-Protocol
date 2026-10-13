@@ -2,11 +2,13 @@
 
 Why the Three-Body Protocol exists, and the failure modes that produced it.
 
+*This is a personal account, not a measurement. Timings and outcomes below are the author's impressions.*
+
 ---
 
 ## How I got here
 
-I started ORCA the way most people start an AI-collaborative project: a Claude chat for thinking, and Claude Code for implementation. For the first week, I held the architecture in my head. Felt fine.
+I started my project the way most people start an AI-collaborative project: a Claude chat for thinking, and Claude Code for implementation. For the first week, I held the architecture in my head. Felt fine.
 
 By week three, I was making the same drift mistake every other day. The strategic Claude would tell me to do X, with a constraint that we'd discussed in chat. I'd brief Claude Code on X, leave out the constraint because it felt obvious, and Claude Code would ship X-without-the-constraint. Strategic Claude would assess the result, miss that the constraint had been dropped, and recommend a next step that assumed the constraint was honored. By the time I caught it, I'd be three deltas downstream of the divergence point.
 
@@ -26,7 +28,7 @@ The protocol came from naming the architecture: three actors, two of them AIs, n
 
 **Re-litigation of closed decisions.** Without a "Forecloses" field in the decisions log, every fresh session asks "have we considered Y?" and re-runs an argument that was settled three months ago. The Forecloses field makes re-litigation cheap to detect.
 
-**Session-end neglect.** Sessions that end without updating STATUS_NOW corrupt the next session's boot. I lost real time to this - opening a session, finding STATUS_NOW out of date, spending fifteen minutes re-deriving where things stood. The session-end protocol is the discipline that closes this gap.
+**Session-end neglect.** Sessions that end without updating STATUS_NOW corrupt the next session's boot. I lost real time to this - opening a session, finding STATUS_NOW out of date, spending a while re-deriving where things stood. The session-end protocol is the discipline that closes this gap.
 
 ---
 
@@ -50,11 +52,11 @@ The protocol came from naming the architecture: three actors, two of them AIs, n
 
 **Decisions log earlier.** I started one in week eight. The decisions from weeks 1-7 had to be reconstructed from chat history, and several were lost. Don't repeat that. If you start a project today, start the log today.
 
-**Brief format earlier.** I was doing chat-handoff for months before I formalized the brief. Every brief I've sent since the format stabilized has been more reliable than any chat-handoff before it.
+**Brief format earlier.** I was doing chat-handoff for months before I formalized the brief. It felt more reliable than chat-handoff.
 
-**Boot ceremony as a hook.** I enforced it by convention for a long time. Eventually wiring it as a session-init hook removed the failure mode where I'd "just dive in" on a session and skip the boot. Mechanizing the boot ceremony is the highest-ROI 30-minute investment in the whole protocol.
+**Boot ceremony as a hook.** I enforced it by convention for a long time. Eventually wiring it as a session-init hook removed the failure mode where I'd "just dive in" on a session and skip the boot. Mechanizing the boot ceremony looked to me like one of the cheapest improvements in the protocol.
 
-**Cross-model RJ from earlier.** The cross-model audit pattern - using a different model to review the implementing actor's output - caught defects that single-model review missed three rounds in a row. I underused this pattern for a long time. It's the cheapest insurance the protocol has.
+**Cross-model RJ from earlier.** The cross-model audit pattern - using a different model to review the implementing actor's output - seemed to catch defects that single-model review missed. I underused this pattern for a long time. It's the cheapest insurance the protocol has.
 
 ---
 
@@ -68,4 +70,4 @@ I was tempted to give it a less dramatic name - "session coordination protocol" 
 
 ---
 
-*Version notes: this is the v1.0 rationale. Revisions tracked in CHANGELOG.md.*
+*Version notes: this is the rationale as of this version. Revisions tracked in CHANGELOG.md.*
