@@ -70,4 +70,4 @@ I was tempted to give it a less dramatic name - "session coordination protocol" 
 
 ---
 
-*Version notes: this is the v1.0 rationale. Revisions tracked in CHANGELOG.md.*
+*Version notes: this is the rationale as of this version. Revisions tracked in CHANGELOG.md.*

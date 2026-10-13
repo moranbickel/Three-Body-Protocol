@@ -54,7 +54,7 @@ You can put STATUS_NOW content in a PM tool if you want. The discipline is what 
 
 ### Why a 50-line cap?
 
-Empirically: longer files become graveyards. People stop reading them, AI sessions skim past them, the file drifts from reality.
+In my experience (an impression, not a measurement), longer files become graveyards. People stop reading them, AI sessions skim past them, the file drifts from reality.
 
 50 lines is the rough threshold where a file is still readable in one screen and updateable in one minute. The exact number isn't sacred - 40 or 60 would work - but a cap is non-negotiable. A STATUS_NOW that grows to 200 lines isn't a status file anymore.
 
@@ -62,7 +62,7 @@ Empirically: longer files become graveyards. People stop reading them, AI sessio
 
 ### Do I really need the "Forecloses" field in the decisions log?
 
-Yes. It's the field that prevents the most expensive failure mode: re-litigating closed decisions six months later because nobody captured what the decision ruled out. The first three months, this field feels artificial. After six months, it's the field you reach for first when reading old log entries. [`examples/idempotent-refunds-walkthrough.md`](../examples/idempotent-refunds-walkthrough.md) shows it on a high-stakes decision - and the re-litigation it prevents three months on.
+Yes. It's the field that prevents the most expensive failure mode: re-litigating closed decisions six months later because nobody captured what the decision ruled out. In my experience (an impression, not a measurement), it feels artificial at first and becomes the field you reach for first when reading old log entries. [`examples/idempotent-refunds-walkthrough.md`](../examples/idempotent-refunds-walkthrough.md) shows it on a high-stakes decision - and the re-litigation it prevents three months on.
 
 ---
 
