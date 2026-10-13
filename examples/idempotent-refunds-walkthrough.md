@@ -45,7 +45,7 @@ A fresh session opens. It has no memory of February. The team is dealing with a 
 
 > "Support is asking for a nightly job that finds refunds stuck in `pending` and re-submits them. Can we just derive the key from order id and amount so the job doesn't need the original key?"
 
-This is exactly the **re-briefing decay** the protocol is built around. The session that made the February decision is gone; its reasoning lives only in the log. Without the `Forecloses` field, what happens next is predictable: the new session, reasoning from scratch, finds the nightly job reasonable, and a double-payout path ships as a *feature*. Two refunds for the same order with different amounts would even hash to different keys.
+This is exactly the **re-briefing decay** the protocol is built around. The session that made the February decision is gone; its reasoning lives only in the log. Without the `Forecloses` field, what happens next is predictable: the new session, reasoning from scratch, finds the nightly job reasonable, and a double-payout path ships as a *feature*. A re-derived key can differ from the key the client originally supplied, so the "retry" is not recognized as a repeat.
 
 With the field, the cost of detecting the closed decision is one grep:
 

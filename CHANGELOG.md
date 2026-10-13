@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- `examples/idempotent-refunds-walkthrough.md` - new high-stakes worked example for the `Forecloses` field (the protocol's most novel feature, previously undemonstrated): a consequential foreclosure (an invented payments example), the re-litigation it prevents three months on across the session memory gap, and the explicit override path. Wired into README (DECISIONS_LOG section) and the faq.
+- `examples/idempotent-refunds-walkthrough.md` - new high-stakes worked example for the `Forecloses` field (the protocol's most novel feature, previously undemonstrated): a consequential foreclosure (an invented payments example), the re-litigation it prevents three months on across the session memory gap, and the explicit override path. Linked from the README and the FAQ.
 
 ## v1.3 - 2026-05-04
 
@@ -28,7 +28,7 @@ Pre-publish refinement based on Code RJ + cross-vendor review.
 - README "Cross-model audit" softened: replaced an absolute empirical claim with experience-grounded language.
 - README gained a "A short vignette" subsection under "The bridge" - concrete before/after example showing the bridge in action on a payment-integration task.
 - README author section softened.
-- PROTOCOL.md gained §7.5 "Implementations vary" - names that production deployments may implement STATUS_NOW as session-block-with-rotation and DECISIONS_LOG as session-retrospective rather than the flat shapes in §3.
+- PROTOCOL.md gained §7.5 "Implementations vary" - names that real-world setups may implement STATUS_NOW as session-block-with-rotation and DECISIONS_LOG as session-retrospective rather than the flat shapes in §3.
 
 ## v1.0 - 2026-05-04
 

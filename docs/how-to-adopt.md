@@ -1,6 +1,6 @@
 # How to Adopt the Three-Body Protocol
 
-Concrete steps to start using the protocol today. Estimated time to functional adoption: **30 minutes**. Estimated time to fluent use: **two weeks of real work**.
+Concrete steps to start using the protocol today. Rough guesses, not measurements: functional adoption in about 30 minutes, fluent use after a couple of weeks of real work.
 
 ---
 
@@ -83,7 +83,7 @@ You'll know you've adopted the protocol when:
 - You catch drift earlier - usually within one round, not three.
 - You stop opening sessions with twenty minutes of "let me re-explain the project."
 
-This typically takes 2-4 weeks of consistent use.
+Expect this to take a few weeks of consistent use (a guess, not a measurement).
 
 ---
 
